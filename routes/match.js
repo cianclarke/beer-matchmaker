@@ -62,8 +62,6 @@ router.get('/result', function(req, res){
       });
     }
     
-    console.log(matchRes);
-    
     return res.render('matchresult', { match : matchRes, a : userA, b : userB });
   });
 

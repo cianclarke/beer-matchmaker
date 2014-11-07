@@ -13,5 +13,8 @@ $(function(){
   $('select').trigger('change');
   $('button').on('click', function(){
     $('button span').html('Loading...')
+    setTimeout(function(){
+      $('button').attr('disabled', true)  
+    }, 250);
   });
 });

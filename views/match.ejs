@@ -17,7 +17,7 @@
         <div class="form-group">
           <label class="sr-only" for="chooseFriend">From Friends List</label>
           <select class="form-control input-lg" id="chooseFriend">
-            <option><%= me %> (me)</option>
+            <option value="<%= me %>"><%= me %> (me)</option>
             <% friends.forEach(function(friend){ %>
               <option value="<%= friend.username %>"><%= friend.first_name %> <%= friend.last_name %></option>
             <% }); %>

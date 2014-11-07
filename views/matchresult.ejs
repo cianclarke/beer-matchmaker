@@ -20,8 +20,18 @@
               &lt;/3 No match!
             <% } %>
           </h3>    
-          On average, you <%= match.styleDesc %>  on beer styles. <br />
-          On average, you <%= match.beerDesc %>  on beers.
+          <% if (typeof match.averageStyleDifference !== 'number'){ %>
+            You have no styles in common. Boourns..
+          <% }else{ %>
+            On average, you <%= match.styleDesc %>  on beer styles. <br />
+          <% } %>
+          <% if (typeof match.averageBeerDifference !== 'number'){ %>
+            You have no beers in common. Boourns..
+          <% }else{ %>
+            On average, you <%= match.beerDesc %>  on beers.
+          <% } %>
+          
+          
         </div>
         
         <div class="col-md-6">
