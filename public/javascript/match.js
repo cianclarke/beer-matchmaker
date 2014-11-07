@@ -11,4 +11,7 @@ $(function(){
   });
   // Trigger the change event on first load
   $('select').trigger('change');
+  $('button').on('click', function(){
+    $('button span').html('Loading...')
+  });
 });

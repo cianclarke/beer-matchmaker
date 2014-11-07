@@ -1,31 +1,37 @@
 var express = require('express');
 var router = express.Router();
-var beers = require('../lib/beers.js');
+var analyse = require('../lib/analyse.js');
 var user = require('../lib/user.js');
 
-/* GET home page. */
+/* GET match friend pick page. */
 router.get('/', function(req, res) {
   var token = req.session.access_token;
   
   if (!token){
     return res.redirect('/');
   }
+  var username = req.session.user_name || '';
   
-  user.friends(token, function(err, friends){
+  user.infoAndFriends(token, username, function(err, userResult){
     if (err){
       return res.render('error', {
-          message: 'Error retrieving users',
-          error: {}
+          message: 'Error retrieving users info',
+          error: err
       });    
     }
+    
+    // store this user's username for future use
+    req.session.user_name = userResult.user_name;
+    
     return res.render('match', {
-      friends : friends,
-      me : 'cianclarke' // TODO: How TF to we find out who the authed user is!?
+      friends : userResult.friends,
+      me : userResult.user_name
     });  
   });
-  
-  
-  
+});
+
+router.get('/sample', function(req, res){  
+  return res.render('matchresult', { match : require('../test/fixtures/mockMatch.js'), a : 'georgewbush', b : 'paedobear' });
 });
 
 router.get('/result', function(req, res){
@@ -47,7 +53,7 @@ router.get('/result', function(req, res){
     return res.render('matchresult', { match : require('../test/fixtures/mockMatch.js'), a : userA, b : userB });
   }
   
-  beers.compareUsers(token, userA, userB, function(err, matchRes){
+  analyse.compareUsers(token, userA, userB, function(err, matchRes){
     if (err){
       console.log(err);
       return res.render('error', {

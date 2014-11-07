@@ -12,7 +12,7 @@ var testimonials = [
     image : 'jk.png'
   },
   {
-    name : 'Paedo Bear',
+    name : 'Peado Bear',
     text : 'As a registered sex offender, I can\'t often visit bars. ' + title + ' allowed me to find my latest victims, er, soulmate - from the comfort of my basement, er, living room',
     image : 'pb.png'
   }

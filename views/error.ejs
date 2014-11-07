@@ -1,3 +1,30 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= config.title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <a href="/"><h1><%= config.title %></h1></a>
+      </div>
+      <hr />
+            
+      <h1>Error: <%= message %></h1>
+      <pre><%= JSON.stringify(error) %></pre>
+
+      
+    </div><!-- /container -->
+    <div class="footer">
+      <div class="container">
+        <small>
+        <%= config.title %> is created by <a href="http://www.cianclarke.com">Cian Clarke</a>, and is in no way affiliated with Untappd.<br />
+        <%= config.title %> requires access to your Untappd Account. We won't do anything nasty like post to your feed, or recommend an AA meeting - promise.
+        </small>
+      </div>
+    </div>
+    
+    
+  </body>
+</html>

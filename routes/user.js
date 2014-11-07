@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var beers = require('../lib/beers.js');
+var analyse = require('../lib/analyse.js');
 
 router.get('/:user', function(req, res) {
   var token = req.session.access_token,
@@ -10,7 +10,7 @@ router.get('/:user', function(req, res) {
     res.redirect('/');
   }
   
-  beers.getUserCheckinsAndAnalyse(token, user, function(err, userRes){
+  analyse.getUserCheckinsAndAnalyse(token, user, function(err, userRes){
     if (err){
       return res.render('error', {
           message: 'Error retrieving your user',

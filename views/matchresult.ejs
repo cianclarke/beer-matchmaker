@@ -43,25 +43,28 @@
             <%= match.b.first_name %> <%= match.b.last_name %><br />
             <img style="width: 140px; height: 140px;" class="img-circle" alt="<%= match.b.user_name %>" src="<%= match.b.user_avatar %>">
           </th>
+          <th></th> 
         </tr>
         <tr>
           <td>Location</td>
           <td><%= match.a.location %></td>
           <td><%= match.b.location %></td>
+          <td></td>
         </tr>
         <tr>
           <td>Total beers</td>
           <td><%= match.a.total_beers %></td>
           <td><%= match.b.total_beers %></td>
+          <td></td>
         </tr>
       </table>
       
-      <table class="table">
+      <table class="table results">
         <tr>
           <th>Beers in common</th>
           <th><%= match.a.first_name %> Rated</th>
           <th><%= match.b.first_name %> Rated</th>
-          <th>Description</th>
+          <th></th>
         </tr>
         <% 
           Object.keys(match.beersInCommon).forEach(function(key){
@@ -79,7 +82,7 @@
       </table>
       
       
-      <table class="table">
+      <table class="table results">
         <tr>
           <th>Styles in common</th>
           <th><%= match.a.first_name %> Avg.</th>

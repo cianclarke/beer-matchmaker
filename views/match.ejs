@@ -17,7 +17,7 @@
         <div class="form-group">
           <label class="sr-only" for="chooseFriend">From Friends List</label>
           <select class="form-control input-lg" id="chooseFriend">
-            <option><%= me %></option>
+            <option><%= me %> (me)</option>
             <% friends.forEach(function(friend){ %>
               <option value="<%= friend.username %>"><%= friend.first_name %> <%= friend.last_name %></option>
             <% }); %>
@@ -50,7 +50,8 @@
           <input name="b" type="text" class="form-control input-lg" id="b" placeholder="Untappd Username">
         </div>
         <br />
-        <button type="submit" class="btn btn-primary btn-lg col-md-12">Match me! &raquo;<br />
+        <button type="submit" class="btn btn-primary btn-lg col-md-12">
+          <span>Match me! &raquo;</span><br />
         <small>Matching may take some time, depending on the number of check-ins!</small></button>
       </form>
    
