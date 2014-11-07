@@ -62,9 +62,9 @@ app.use(function(err, req, res, next) {
     });
 });
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', config.port);
 
-var server = app.listen(app.get('port'), function() {
+var server = app.listen(app.get('port'), config.host, function() {
   console.log('Express server listening on port ' + server.address().port);
 });
 
