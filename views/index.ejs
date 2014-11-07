@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= config.title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <a href="/"><h1><%= config.title %></h1></a>
+        <br />
+        <div class="row">
+          <div class="col-md-4">
+            Looking to find beer-goggled love?
+          </div>
+          <div class="col-md-4">
+            Trying to re-kindle that bromance?
+          </div>
+          <div class="col-md-4">
+            Just looking to compare with friends?
+          </div>
+        </div>
+        <br />
+
+        <p>
+          <% if (!loggedIn) { %>  
+          <% } %>
+        </p>
+        <% if (loggedIn) { %>
+          <a class="btn btn-primary btn-lg" href="/match">You're logged in - get matching! &raquo;</a>  
+        <% }else{ %>
+          <a class="btn btn-primary btn-lg" href="<%= redirectUrl %>">Get started with <%= config.title %> &raquo;
+          <br /><small>We just need access to Untappd</small>
+          </a>
+        <% } %>
+        <br /><br />
+      </div>
+      <hr />
+      <h2 class="featurette-heading">Not convinced? <span class="text-muted">See what our users have to say! </span></h2><br/>
+      <div class="row testimonials">
+        <% testimonials.forEach(function(t){ %>
+          <div class="col-md-4">
+            <img class="img-circle" src="/images/testimonials/<%= t.image %>" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+            <h3><%= t.name %></h3>
+            <p><%= t.text %></p>
+          </div><!-- /.col-lg-4 -->  
+        <% }) %>
+      </div>
+      
+      <hr />
+      
+      <div class="jumbotron nobg">
+        <p class="lead">Convinced yet?</p>
+        <% if (loggedIn) { %>
+          <a class="btn btn-primary btn-lg" href="/match">You're logged in - get matching! &raquo;</a>  
+        <% }else{ %>
+          <a class="btn btn-primary btn-lg" href="<%= redirectUrl %>">Get started with <%= config.title %> &raquo;</a>
+        <% } %>  
+      </div>
+      
+      <hr />
+      
+    </div><!-- /container -->
+    <div class="footer">
+      <div class="container">
+        <small>
+        <%= config.title %> is created by <a href="http://www.cianclarke.com">Cian Clarke</a>, and is in no way affiliated with Untappd.<br />
+        <%= config.title %> requires access to your Untappd Account. We won't do anything nasty like post to your feed, or recommend an AA meeting - promise.
+        </small>
+      </div>
+    </div>
+    
+    
+  </body>
+</html>

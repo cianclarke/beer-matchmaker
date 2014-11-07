@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= config.title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    
+    <div class="container">
+      <div class="jumbotron">
+        <a href="/"><h1><%= config.title %></h1></a>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <h3>
+            <% if (match.match){ %> 
+              &lt;3 It's a match!
+            <% }else{ %>
+              &lt;/3 No match!
+            <% } %>
+          </h3>    
+          On average, you <%= match.styleDesc %>  on beer styles. <br />
+          On average, you <%= match.beerDesc %>  on beers.
+        </div>
+        
+        <div class="col-md-6">
+          Your match
+          <h1 class="animate" data=percent="<%= match.percent %>"><%= match.percent %>%</h1>
+        </div>
+        
+      </div>
+      <br />
+      
+      <table class="table">
+        <tr>
+          <th>Users Info</th>
+          <th>
+            <%= match.a.first_name %> <%= match.a.last_name %><br />
+            <img style="width: 140px; height: 140px;" class="img-circle" alt="<%= match.a.user_name %>" src="<%= match.a.user_avatar %>">
+          </th>
+          <th>
+            <%= match.b.first_name %> <%= match.b.last_name %><br />
+            <img style="width: 140px; height: 140px;" class="img-circle" alt="<%= match.b.user_name %>" src="<%= match.b.user_avatar %>">
+          </th>
+        </tr>
+        <tr>
+          <td>Location</td>
+          <td><%= match.a.location %></td>
+          <td><%= match.b.location %></td>
+        </tr>
+        <tr>
+          <td>Total beers</td>
+          <td><%= match.a.total_beers %></td>
+          <td><%= match.b.total_beers %></td>
+        </tr>
+      </table>
+      
+      <table class="table">
+        <tr>
+          <th>Beers in common</th>
+          <th><%= match.a.first_name %> Rated</th>
+          <th><%= match.b.first_name %> Rated</th>
+          <th>Description</th>
+        </tr>
+        <% 
+          Object.keys(match.beersInCommon).forEach(function(key){
+            var beer = match.beersInCommon[key];
+        %>
+        <tr>
+          <td><%= key %></td>
+          <td><%=beer.a %></td>
+          <td><%=beer.b %></td>  
+          <td class="agreement-<%= Math.round(beer.diff) %>"><%=beer.desc %></td>  
+        </tr>
+        <% 
+          });
+        %>
+      </table>
+      
+      
+      <table class="table">
+        <tr>
+          <th>Styles in common</th>
+          <th><%= match.a.first_name %> Avg.</th>
+          <th><%= match.b.first_name %> Avg.</th>
+          <th></th>
+        </tr>
+        <% 
+          Object.keys(match.stylesInCommon).forEach(function(key){
+            var style = match.stylesInCommon[key];
+        %>
+        <tr>
+          <td><%= key %></td>
+          <td><%=style.a.toFixed(2) %></td>
+          <td><%=style.b.toFixed(2) %></td>  
+          <td class="agreement-<%= Math.round(style.diff) %>"><%=style.desc %></td>  
+        </tr>
+        <% 
+          });
+        %>
+      </table>
+      <hr />
+      <div class="jumbotron nobg">
+          <a class="btn btn-primary btn-lg" href="/match">Another match? &raquo;</a>  
+      </div>
+    </div><!-- /container -->
+    <div class="footer">
+      <div class="container">
+        <small>
+        <%= config.title %> is created by <a href="http://www.cianclarke.com">Cian Clarke</a>, and is in no way affiliated with Untappd.<br />
+        <%= config.title %> requires access to your Untappd Account. We won't do anything nasty like post to your feed, or recommend an AA meeting - promise.
+        </small>
+      </div>
+    </div>
+    
+      
+  </body>
+</html>
