@@ -1,4 +1,4 @@
-untappd-matchmaker
+beer-matchmaker
 ==================
 
-Untappd Matchmaker express application
+Beer Matchmaker express application

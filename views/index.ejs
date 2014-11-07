@@ -49,6 +49,20 @@
       
       <hr />
       
+      <div class="row featurette">
+        <div class="col-md-6 col-md-offset-1">
+          <h2 class="featurette-heading">Still need some convincing? <br /><span class="text-muted">See a sample report</span></h2>
+          <p class="lead">These two unlikely lovers found their match thru <%= config.title %> - you could too.</p>
+          <a class="btn btn-primary btn-lg" href="/match/sample">See the sample report &raquo;</a>  
+          
+        </div>
+        <div class="col-md-4">
+          <img class="featurette-image img-responsive img-thumbnail" alt="500x500" src="/images/sampleReport.png" data-holder-rendered="true">
+        </div>
+      </div>
+      
+      <hr />
+      
       <div class="jumbotron nobg">
         <p class="lead">Convinced yet?</p>
         <% if (loggedIn) { %>
@@ -64,8 +78,7 @@
     <div class="footer">
       <div class="container">
         <small>
-        <%= config.title %> is created by <a href="http://www.cianclarke.com">Cian Clarke</a>, and is in no way affiliated with Untappd.<br />
-        <%= config.title %> requires access to your Untappd Account. We won't do anything nasty like post to your feed, or recommend an AA meeting - promise.
+          <%- config.footer() %>
         </small>
       </div>
     </div>

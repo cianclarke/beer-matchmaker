@@ -55,7 +55,6 @@ router.get('/result', function(req, res){
   
   analyse.compareUsers(token, userA, userB, function(err, matchRes){
     if (err){
-      console.log(err);
       return res.render('error', {
           message: 'Error matching you against this user',
           error: err
