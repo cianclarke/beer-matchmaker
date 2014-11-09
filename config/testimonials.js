@@ -12,11 +12,16 @@ var testimonials = [
     image : 'jk.png'
   },
   {
+    name : 'Sarah Palin',
+    text : title + ' allowed me to connect with my constituents in the depths of winter the only way Alaskans know how - drinking.',
+    image : 'sp.png'
+  },
+  {
     name : 'Peado Bear',
     text : 'As a registered sex offender, I can\'t often visit bars. ' + title + ' allowed me to find my latest victims, er, soulmate - from the comfort of my basement, er, living room',
     image : 'pb.png'
   }
 ];
 module.exports = function(){
-  return testimonials;
+  return testimonials.slice(0, 3);
 };

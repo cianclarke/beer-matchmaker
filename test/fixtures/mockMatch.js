@@ -38,10 +38,10 @@ module.exports = { beersInCommon:
      user_avatar : '/images/testimonials/gwb.png',
      total_beers: 209 },
   b: 
-   { user_name: 'peadobear',
-     first_name: 'Peado',
-     last_name: 'B.',
-     location: 'Argentina',
+   { user_name: 'sarahpalin',
+     first_name: 'Sarah',
+     last_name: 'Palin',
+     location: 'Alaska',
      bio: '',
-     user_avatar : '/images/testimonials/pb.png',
+     user_avatar : '/images/testimonials/sp.png',
      total_beers: 131 } }
