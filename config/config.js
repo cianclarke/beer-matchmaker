@@ -9,7 +9,7 @@ module.exports = {
   publicPort : (typeof process.env.OPENSHIFT_NODEJS_PORT === 'undefined') ?  '3000' : '80',
   mode : (process.env.OPENSHIFT_NODEJS_IP === 'undefined') ? 'dev' : 'production',
   redirectUrl : function(){
-    return 'https://untappd.com/oauth/authenticate/?client_id=' + this.clientId + '&response_type=code&redirect_url=http://' + this.publicHost + ':' + this.publicPort +'/oauth/callback';
+    return 'https://untappd.com/oauth/authenticate/?client_id=' + this.clientId + '&response_type=code&redirect_url=' + this.publicHost + ':' + this.publicPort +'/oauth/callback';
   },
   footer : function(){
     return this.title + " is created by <a href=\"http://www.cianclarke.com\">Cian Clarke</a>, and is in no way affiliated with Untappd. " +
