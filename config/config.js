@@ -5,7 +5,7 @@ module.exports = {
   instrumentation : true,
   host : process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1',
   port : process.env.OPENSHIFT_NODEJS_PORT || 3000,
-  publicHost : (typeof process.env.OPENSHIFT_NODEJS_IP === 'undefined') ?  '127.0.0.1' : 'http://http://beermatchmaker-cianclarke.rhcloud.com',
+  publicHost : (typeof process.env.OPENSHIFT_NODEJS_IP === 'undefined') ?  '127.0.0.1' : 'http://beermatchmaker-cianclarke.rhcloud.com',
   publicPort : (typeof process.env.OPENSHIFT_NODEJS_PORT === 'undefined') ?  '3000' : '80',
   mode : (process.env.OPENSHIFT_NODEJS_IP === 'undefined') ? 'dev' : 'production',
   redirectUrl : function(){
