@@ -2,15 +2,13 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 var config = require('../config/config.js');
+var errorHandler = require('./error.js');
 
 /* GET home page. */
 router.get('/callback', function(req, res) {
   doOAuth(req, function(err, access_token){
     if (err){
-      return res.render('error', {
-          message: error.message,
-          error: undefined
-      });
+      return errorHandler(res, err)
     }
     req.session.access_token = access_token;
     res.redirect('/match');

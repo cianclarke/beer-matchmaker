@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var analyse = require('../lib/analyse.js');
 var user = require('../lib/user.js');
+var errorHandler = require('./error');
 
 /* GET match friend pick page. */
 router.get('/', function(req, res) {
@@ -14,10 +15,7 @@ router.get('/', function(req, res) {
   
   user.infoAndFriends(token, username, function(err, userResult){
     if (err){
-      return res.render('error', {
-          message: 'Error retrieving users info',
-          error: err
-      });    
+      return errorHandler(res, 'Error retrieving users info', err);
     }
     
     // store this user's username for future use
@@ -43,10 +41,7 @@ router.get('/result', function(req, res){
   }
   
   if (!userA || !userB){
-    return res.render('error', {
-        message: 'Must specify two users',
-        error: {}
-    });  
+    return errorHandler(res, 'Must specify two users', {});
   }
   
   if (req.query.mock){
@@ -55,10 +50,7 @@ router.get('/result', function(req, res){
   
   analyse.compareUsers(token, userA, userB, function(err, matchRes){
     if (err){
-      return res.render('error', {
-          message: 'Error matching you against this user',
-          error: err
-      });
+      return errorHandler(res, 'Error matching you against this user', err);
     }
     
     return res.render('matchresult', { match : matchRes, a : userA, b : userB });
