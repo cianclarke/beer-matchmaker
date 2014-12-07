@@ -76,6 +76,16 @@
                 <label class="sr-only" for="a">Username</label>
                 <input name="long" type="text" class="form-control input-lg" id="a" placeholder="Longitude">
               </div>
+              <div class="form-group">
+                <label class="sr-only" for="a">Radius</label>
+                <select name="radius" class="form-control input-lg">
+                  <option value="1">1 Mile</option>
+                  <option value="10" selected>10 Miles</option>
+                  <option value="50">50 Miles</option>
+                  <option value="-1">Many Miles</option>
+                </select>
+                
+              </div>
               <button type="submit" class="btn btn-primary btn-nearby btn-lg col-md-12">
                 <span>Find matches near me!</span>
               </button>

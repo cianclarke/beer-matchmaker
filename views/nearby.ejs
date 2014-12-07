@@ -18,8 +18,8 @@
         <tr>
           <th>Beers in common</th>
           <th></th>
-          <th><%= match.a.first_name %> Rated</th>
-          <th><%= match.b.first_name %> Rated</th>
+          <th></th>
+          <th></th>
           <th></th>
         </tr>
         <% 
@@ -28,10 +28,11 @@
         %>
         <tr>
           <td><%= match.checkin.user.first_name %> <%= match.checkin.user.last_name %></td>
-          <td><img src="<%=beer.label %>" alt="<%= key %> Label"></td>
+          <td><img src="<%= match.checkin.brewery.brewery_label %>" alt="<%= match.beerName %> Label"></td>
           <td><%=match.beerName %></td>
           <td><%=match.your %></td>  
           <td><%=match.their %></td>  
+          <td><%=match.checkin.venue.venue_name || '' %></td>  
           
         </tr>
         <% 

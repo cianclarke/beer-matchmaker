@@ -36,14 +36,21 @@ router.get('/nearby', function(req, res) {
   if (!token){
     return res.redirect('/');
   }
-  var username = req.session.user_name;
+  var username = req.session.user_name,
+  radius = parseInt(req.query.radius);
+  if (isNaN(radius)){
+    radius = 25;
+  }
+  if (radius === -1){
+    // Means unlimited
+    radius = undefined;
+  }
   
   if (!username){
     return res.redirect('/match');
   }
-  console.log('got username ' + username );
   
-  nearby(token, username, req.query.lat, req.query.long, function(err, nearbyResult){
+  nearby(token, username, req.query.lat, req.query.long, radius, function(err, nearbyResult){
     if (err){
       return errorHandler(res, 'Error finding nearby matches', err);
     }
