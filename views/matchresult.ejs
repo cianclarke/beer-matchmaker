@@ -8,7 +8,7 @@
     
     <div class="container">
       <div class="jumbotron">
-        <a href="/"><h1><%= config.title %></h1></a>
+        <a href="/"><h1><img src="/images/logo.png" class="logo" alt="Logo"> <%= config.title %></h1></a>
       </div>
       
       <div class="row">
@@ -72,6 +72,7 @@
       <table class="table results">
         <tr>
           <th>Beers in common</th>
+          <th></th>
           <th><%= match.a.first_name %> Rated</th>
           <th><%= match.b.first_name %> Rated</th>
           <th></th>
@@ -82,6 +83,7 @@
         %>
         <tr>
           <td><%= key %></td>
+          <td><img src="<%=beer.label %>" alt="<%= key %> Label"></td>
           <td><%=beer.a %></td>
           <td><%=beer.b %></td>  
           <td class="agreement-<%= Math.round(beer.diff) %>"><%=beer.desc %></td>  
@@ -113,6 +115,29 @@
           });
         %>
       </table>
+      
+      <table class="table results">
+        <tr>
+          <th>Countries of origin in common</th>
+          <th><%= match.a.first_name %> Avg.</th>
+          <th><%= match.b.first_name %> Avg.</th>
+          <th></th>
+        </tr>
+        <% 
+        Object.keys(match.countriesInCommon).forEach(function(key){
+          var country = match.countriesInCommon[key];
+          %>
+          <tr>
+            <td><%= key %></td>
+            <td><%=country.a.toFixed(2) %></td>
+            <td><%=country.b.toFixed(2) %></td>  
+            <td class="agreement-<%= Math.round(country.diff) %>"><%=country.desc %></td>  
+          </tr>
+          <% 
+        });
+        %>
+      </table>
+      
       <hr />
       <div class="jumbotron nobg">
           <a class="btn btn-primary btn-lg" href="/match">Another match? &raquo;</a>  

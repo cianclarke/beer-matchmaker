@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var analyse = require('../lib/analyse.js');
 var user = require('../lib/user.js');
+var nearby = require('../lib/nearby.js');
 var errorHandler = require('./error');
 
 /* GET match friend pick page. */
@@ -24,6 +25,32 @@ router.get('/', function(req, res) {
     return res.render('match', {
       friends : userResult.friends,
       me : userResult.user_name
+    });  
+  });
+});
+
+/* GET match friend pick page. */
+router.get('/nearby', function(req, res) {
+  var token = req.session.access_token;
+  
+  if (!token){
+    return res.redirect('/');
+  }
+  var username = req.session.user_name;
+  
+  if (!username){
+    return res.redirect('/match');
+  }
+  console.log('got username ' + username );
+  
+  nearby(token, username, req.query.lat, req.query.long, function(err, nearbyResult){
+    if (err){
+      return errorHandler(res, 'Error finding nearby matches', err);
+    }
+    
+    return res.render('nearby', {
+      me : username,
+      nearby : nearbyResult
     });  
   });
 });

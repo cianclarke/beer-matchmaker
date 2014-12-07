@@ -1,8 +1,8 @@
 module.exports = { beersInCommon: 
-   { 'City Steam Brewery Cafe - Blonde on Blonde': { a: 3.5, b: 3.5, diff: 0, desc: 'Completely agree' },
-     'Long Trail Brewing Company - Double Bag': { a: 4, b: 3.5, diff: 1, desc: 'Strongly agree' },
-     'Inis Brewing - Pine Solsaison': { a: 3, b: 4, diff: 1, desc: 'Strongly agree' },
-     'Harpoon Brewery - Harpoon Black Forest': { a: 4, b: 4, diff: 0, desc: 'Completely agree' } },
+   { 'City Steam Brewery Cafe - Blonde on Blonde': { a: 3.5, b: 3.5, diff: 0, desc: 'Completely agree', label : 'https://d1c8v1qci5en44.cloudfront.net/site/brewery_logos/brewery-2242_5df15.jpeg' },
+     'Long Trail Brewing Company - Double Bag': { a: 4, b: 3.5, diff: 1, desc: 'Strongly agree', label : 'https://d1c8v1qci5en44.cloudfront.net/site/brewery_logos/brewery-801_0ac25.jpeg' },
+     'Inis Brewing - Pine Solsaison': { a: 3, b: 4, diff: 1, desc: 'Strongly agree', label : 'https://d1c8v1qci5en44.cloudfront.net/site/assets/images/temp/badge-brewery-default.png' },
+     'Harpoon Brewery - Harpoon Black Forest': { a: 4, b: 4, diff: 0, desc: 'Completely agree', label : 'https://d1c8v1qci5en44.cloudfront.net/site/brewery_logos/brewery-HarpoonBrewery_634.jpeg' } },
   stylesInCommon: 
    { Porter: { a: 4, b: 3.8333333333333335, diff: 0, desc: 'Completely agree' },
      'American IPA': { a: 3.7, b: 4, diff: 0, desc: 'Completely agree' },
@@ -23,6 +23,9 @@ module.exports = { beersInCommon:
      'American Pale Ale': { a: 3.5, b: 3.875, diff: 0, desc: 'Completely agree' },
      Altbier: { a: 4, b: 3.5, diff: 1, desc: 'Strongly agree' },
      'Imperial / Double Porter': { a: 4, b: 4, diff: 0, desc: 'Completely agree' } },
+  countriesInCommon: { 
+   "United State": { a: 4, b: 3.8333333333333335, diff: 0, desc: 'Completely agree' }
+  },
   averageBeerDifference: 0.5,
   averageStyleDifference: 0.6666666666666666,
   styleDesc: 'Strongly agree',

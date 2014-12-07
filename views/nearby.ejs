@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= config.title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    
+    <div class="container">
+      <div class="jumbotron">
+        <a href="/"><h1><img src="/images/logo.png" class="logo" alt="Logo"> <%= config.title %></h1></a>
+      </div>
+        
+      <h3>Nearby Drinkers</h3>    
+      
+      <table class="table results">
+        <tr>
+          <th>Beers in common</th>
+          <th></th>
+          <th><%= match.a.first_name %> Rated</th>
+          <th><%= match.b.first_name %> Rated</th>
+          <th></th>
+        </tr>
+        <% 
+          nearby.forEach(function(match){
+            
+        %>
+        <tr>
+          <td><%= match.checkin.user.first_name %> <%= match.checkin.user.last_name %></td>
+          <td><img src="<%=beer.label %>" alt="<%= key %> Label"></td>
+          <td><%=match.beerName %></td>
+          <td><%=match.your %></td>  
+          <td><%=match.their %></td>  
+          
+        </tr>
+        <% 
+          });
+        %>
+      </table>
+    </div><!-- /container -->
+    <div class="footer">
+      <div class="container">
+        <small>
+        <%= config.title %> is created by <a href="http://www.cianclarke.com">Cian Clarke</a>, and is in no way affiliated with Untappd.<br />
+        <%= config.title %> requires access to your Untappd Account. We won't do anything nasty like post to your feed, or recommend an AA meeting - promise.
+        </small>
+      </div>
+    </div>
+    
+      
+  </body>
+</html>
