@@ -2,6 +2,7 @@
 <html>
   <head>
     <title><%= config.title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
@@ -29,7 +30,7 @@
         <% if (loggedIn) { %>
           <a class="btn btn-primary btn-lg" href="/match">You're logged in - get matching! &raquo;</a>  
         <% }else{ %>
-          <a class="btn btn-primary btn-lg" href="<%= redirectUrl %>">Get started with <%= config.title %> &raquo;
+          <a class="btn btn-primary btn-lg" href="<%= redirectUrl %>">Get started &raquo;
           <br /><small>We just need access to Untappd</small>
           </a>
         <% } %>
@@ -68,7 +69,7 @@
         <% if (loggedIn) { %>
           <a class="btn btn-primary btn-lg" href="/match">You're logged in - get matching! &raquo;</a>  
         <% }else{ %>
-          <a class="btn btn-primary btn-lg" href="<%= redirectUrl %>">Get started with <%= config.title %> &raquo;</a>
+          <a class="btn btn-primary btn-lg" href="<%= redirectUrl %>">Get started &raquo;</a>
         <% } %>  
       </div>
       

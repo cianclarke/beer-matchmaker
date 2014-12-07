@@ -3,6 +3,7 @@
   <head>
     <title><%= config.title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
     
@@ -42,9 +43,8 @@
       </div>
       <br />
       
-      <table class="table">
+      <table class="table userinfo">
         <tr>
-          <th>Users Info</th>
           <th>
             <%= match.a.first_name %> <%= match.a.last_name %><br />
             <img style="width: 140px; height: 140px;" class="img-circle" alt="<%= match.a.user_name %>" src="<%= match.a.user_avatar %>">
@@ -56,15 +56,13 @@
           <th></th> 
         </tr>
         <tr>
-          <td>Location</td>
           <td><%= match.a.location %></td>
           <td><%= match.b.location %></td>
           <td></td>
         </tr>
         <tr>
-          <td>Total beers</td>
-          <td><%= match.a.total_beers %></td>
-          <td><%= match.b.total_beers %></td>
+          <td><%= match.a.total_beers %> beers</td>
+          <td><%= match.b.total_beers %> beers</td>
           <td></td>
         </tr>
       </table>
