@@ -12,9 +12,9 @@ module.exports = {
     return 'https://untappd.com/oauth/authenticate/?client_id=' + this.clientId + '&response_type=code&redirect_url=' + this.publicHost + ':' + this.publicPort +'/oauth/callback';
   },
   footer : function(){
-    return this.title + " is created by <a href=\"http://www.cianclarke.com\">Cian Clarke</a>, and is in no way affiliated with Untappd. " +
-    "The source is <a href=\"http://www.github.com/cianclarke/beermatchmaker\">on GitHub</a> - report bugs <a href=\"https://github.com/cianclarke/beer-matchmaker/issues\">here</a>.<br />" +
-    this.title + " requires access to your Untappd Account. We won't do anything nasty like post to your feed, or recommend an AA meeting - promise.";
+    return "Created by <a href=\"http://www.cianclarke.com\">Cian Clarke</a> &amp; in no way affiliated with Untappd. " +
+    " Report bugs <a href=\"https://github.com/cianclarke/beer-matchmaker/issues\">on GitHub</a>.<br />" +
+    "<span class=\"nomobile\">Requires access to your Untappd Account.We won't do anything nasty like post to your feed, or recommend an AA meeting - promise.</span>";
     
   }
 };

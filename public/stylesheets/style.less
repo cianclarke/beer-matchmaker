@@ -4,7 +4,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-table td:first-of-type {
+table.userinfo td:first-of-type, table.results td:first-of-type {
   width: 50%;
 }
 
@@ -16,7 +16,7 @@ table td:last-of-type {
   vertical-align: middle;
 }
 
-.table.results td img {
+.table.results td img, .table.nearby td img, .table.matches td img {
   width: 50px;
   height: 50px;
 }
@@ -108,5 +108,8 @@ h1 img.logo {
 @media (max-width: 991px) {
   .table {
     font-size: 0.7em
+  }
+  .nomobile {
+    display : none;
   }
 }

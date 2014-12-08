@@ -12,33 +12,69 @@
         <a href="/"><h1><img src="/images/logo.png" class="logo" alt="Logo"> <%= config.title %></h1></a>
       </div>
         
-      <h3>Nearby Drinkers</h3>    
+      <h3>Nearby Matches</h3>    
       
-      <table class="table results">
-        <tr>
-          <th>Beers in common</th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-        </tr>
-        <% 
-          nearby.forEach(function(match){
+      <% if (matches.length === 0){ %>
+        <p>No matches found nearby - try a different radius!</p>
+      <% }else{ %>
+      
+        <table class="table nearby">
+          <tr>
+            <th>User</th>
+            <th>Beer</th>
+            <th><!-- label --></th>
+            <th>Seen at</th>
+            <th>You rated</th>
+            <th>They Rated</th>
+            <th></th>
+          </tr>
+          
+          <% 
+            matches.forEach(function(match){
+              
+          %>
+          <tr>
+            <td><%= match.checkin.user.first_name %> <%= match.checkin.user.last_name %></td>
+            <td><%=match.beerName %></td>
+            <td><img src="<%= match.checkin.brewery.brewery_label %>" alt="<%= match.beerName %> Label"></td>
+            <td><%=match.checkin.venue.venue_name || 'Unknown' %></td>  
+            <td><%=match.your %></td>  
+            <td><%=match.their %></td>
+            <td class="agreement-<%= Math.round(match.diff) %>"><%=match.desc %></td>
             
+            
+          </tr>
+          <% 
+            });
+          %>
+        </table>
+      <% } // end else results >0 %>
+      
+    <h3>Nearby Drinkers with no match</h3>    
+    <table class="table nearby">
+      <tr>
+        <th>User</th>
+        <th>Beer</th>
+        <th><!-- label --></th>
+        <th>Seen at</th>
+        <th>They Rated</th>
+      </tr>
+      
+      <% 
+      nearby.forEach(function(match){
+        
         %>
         <tr>
           <td><%= match.checkin.user.first_name %> <%= match.checkin.user.last_name %></td>
-          <td><img src="<%= match.checkin.brewery.brewery_label %>" alt="<%= match.beerName %> Label"></td>
           <td><%=match.beerName %></td>
-          <td><%=match.your %></td>  
-          <td><%=match.their %></td>  
-          <td><%=match.checkin.venue.venue_name || '' %></td>  
-          
+          <td><img src="<%= match.checkin.brewery.brewery_label %>" alt="<%= match.beerName %> Label"></td>
+          <td><%=match.checkin.venue.venue_name || 'Unknown' %></td>  
+          <td><%=match.their %></td>
         </tr>
         <% 
-          });
-        %>
-      </table>
+      });
+      %>
+    </table>
     </div><!-- /container -->
     <div class="footer">
       <div class="container">

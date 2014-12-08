@@ -28,7 +28,7 @@
           <% } %>
         </p>
         <% if (loggedIn) { %>
-          <a class="btn btn-primary btn-lg" href="/match">You're logged in - get matching! &raquo;</a>  
+          <a class="btn btn-primary btn-lg" href="/match"><span class="nomobile">You're logged in - </span>Get matching! &raquo;</a>  
         <% }else{ %>
           <a class="btn btn-primary btn-lg" href="<%= redirectUrl %>">Get started &raquo;
           <br /><small>We just need access to Untappd</small>
@@ -37,7 +37,7 @@
         <br /><br />
       </div>
       <hr />
-      <h2 class="featurette-heading">Not convinced? <span class="text-muted">See what our users have to say! </span></h2><br/>
+      <h2 class="featurette-heading">Not convinced? <span class="text-muted"> <br />You can also... </span></h2><br/>
       <div class="row features">
         <% features.forEach(function(t){ %>
           <div class="col-md-4">
@@ -67,7 +67,7 @@
       <div class="jumbotron nobg">
         <p class="lead">Convinced yet?</p>
         <% if (loggedIn) { %>
-          <a class="btn btn-primary btn-lg" href="/match">You're logged in - get matching! &raquo;</a>  
+          <a class="btn btn-primary btn-lg" href="/match"><span class="nomobile">You're logged in - </span>Get matching! &raquo;</a>  
         <% }else{ %>
           <a class="btn btn-primary btn-lg" href="<%= redirectUrl %>">Get started &raquo;</a>
         <% } %>  

@@ -57,7 +57,8 @@ router.get('/nearby', function(req, res) {
     
     return res.render('nearby', {
       me : username,
-      nearby : nearbyResult
+      matches : nearbyResult.matches,
+      nearby : nearbyResult.nearby
     });  
   });
 });
